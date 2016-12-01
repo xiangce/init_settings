@@ -1,0 +1,288 @@
+set nocompatible              " be iMproved, required
+filetype on                   " required
+filetype plugin on
+filetype plugin indent on
+
+set rtp+=/home/user/.vim/bundle/Vundle.vim
+call vundle#begin('$HOME/.vim/bundle')
+
+Plugin 'VundleVim/Vundle.vim'
+
+" Programming
+" git
+Plugin 'tpope/vim-fugitive'
+" Comment with gcc
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-sensible'
+" Automatic closing
+Plugin 'Raimondi/delimitMate'
+"Plugin 'jpalardy/vim-slime'
+"Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'kevinw/pyflakes-vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'kien/rainbow_parentheses.vim'
+
+" Utility
+Plugin 'vim-scripts/CmdlineComplete'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'edkolev/tmuxline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'easymotion/vim-easymotion'
+"if v:version >= 703
+Plugin 'sjl/gundo.vim'
+"endif
+Plugin 'VisIncr'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'rking/ag.vim'
+
+" Format
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+"Plugin 'Mark--Karkat'
+"Plugin 'FavEx'
+"Plugin 'thinca/vim-visualstar'
+"Plugin 'tpope/vim-unimpaired'
+"Plugin 'itchyny/calendar.vim'
+"Plugin 'DrawIt'
+
+" Color
+"Plugin 'desert256.vim'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'pdf/vim-railscasts'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'ciaranm/inkpot'
+"Plugin 'tpope/vim-vividchalk'
+"Plugin 'tomasr/molokai'
+
+call vundle#end()
+
+" settings {
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set tabpagemax=20
+set expandtab
+set shiftround
+set background=light
+set nowrap
+set number
+set relativenumber
+set ruler
+set undofile
+
+setlocal spell spelllang=en_us
+
+set cursorline
+set cursorcolumn
+set colorcolumn=80
+set textwidth=80
+set hlsearch
+set incsearch
+set backspace=indent,eol,start
+set laststatus=2
+set autoindent
+syntax on
+set formatoptions=trocq
+set noswapfile
+set hidden
+set complete=k,.,w,b,u,t,i
+
+let mapleader=','
+" }
+
+" Fold {
+set foldmethod=indent
+set foldnestmax=999
+set foldminlines=200
+let python_highlight_all = 1
+"set foldcolumn=5
+" }
+
+" Color {
+"colorscheme default
+colorscheme railscasts
+hi ColorColumn ctermbg=red guibg=blue
+hi CursorColumn ctermbg=darkgray guibg=blue
+set term=screen-256color
+"colorscheme desert256
+"}
+
+" Undo {
+nnoremap <F5> :GundoToggle<CR>
+set undodir=/home/user/.vim/undo/
+let g:gundo_width = 60
+let g:gundo_preview_height = 40
+let g:gundo_right = 1
+" }
+
+" airline {
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" }
+
+" indent_guides {
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgray
+" }
+
+" SyntasticCheck {
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height=5
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_quiet_messages = { "type": "style" }
+
+map <F3> :SyntasticCheck python<CR>
+" }
+
+" Falk8{
+let g:PyFlakeOnWrite = 1
+let g:PyFlakeCheckers = 'pep8,mccabe,frosted'
+let g:pyflakes_use_quickfix = 0
+" }
+
+" { Sliver searcher
+
+" }
+
+
+" UltiSnips {
+" Trigger configuration.
+" Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" }
+
+
+" YouCompleteMe {
+let g:ycm_global_ycm_extra_conf = '/home/user/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_python_binary_path = 'python'
+let g:ycm_confirm_extra_conf = 1
+let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
+" }
+
+hi LeadingSpace ctermbg=darkblue guibg=Black
+match LeadingSpace /^\s\+/
+"hi EndingExcess ctermbg=red guibg=Black
+"match EndingExcess /\%81v.*/
+hi EndingBlank ctermbg=red guibg=Black
+match EndingBlank /\s\+$/
+
+" CtrlP {
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_prompt_mappings = { 'PrtCurLeft()': ['<left>', '<c-^>'] }
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_max_history = &history
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_arg_map = 1
+let g:ctrlp_open_new_file = 'h'
+let g:ctrlp_open_multiple_files = 'h'
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*,*/.hg/*,*/.svn/*
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+" }
+
+" NerdTree {
+map <F2> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+" }
+
+" Easy-Align {
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" }
+
+"Easy Motion {
+" <Leader>f{char} to move to {char}
+" map  <Leader>f <Plug>(easymotion-bd-f)
+" nmap <Leader>f <Plug>(easymotion-overwin-f)
+" " s{char}{char} to move to {char}{char}
+" nmap <Leader>s <Plug>(easymotion-overwin-f2)
+"" Move to line
+map <Leader><Leader>g <Plug>(easymotion-bd-jk)
+nmap <Leader><Leader>g <Plug>(easymotion-overwin-line)
+" "" Move to word
+" map  <Leader>w <Plug>(easymotion-bd-w)
+" nmap <Leader>w <Plug>(easymotion-overwin-w
+" }
+
+" Rainbow Parentheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+" }
+
+" cscope {
+if has("cscope")
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    map <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
+" }
+
+" Pytest {
+nmap <silent><Leader>f <Esc>:Pytest file<CR>
+"nmap <silent><Leader>c <Esc>:Pytest class<CR>
+"nmap <silent><Leader>m <Esc>:Pytest method<CR>
+"nmap <silent><Leader>s <Esc>:Pytest session<CR>
+" }

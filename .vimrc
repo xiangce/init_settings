@@ -72,6 +72,7 @@ set tabpagemax=20
 set expandtab
 set shiftround
 set background=light
+set mouse-=a
 set nowrap
 set number
 set relativenumber
@@ -255,7 +256,6 @@ let g:rbpt_colorpairs = [
     \ ['Darkblue',    'firebrick3'],
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkred',     'DarkOrchid3'],
     \ ['darkcyan',    'SeaGreen3'],
     \ ['red',         'firebrick3'],
     \ ]

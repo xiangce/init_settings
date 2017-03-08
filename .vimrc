@@ -18,12 +18,11 @@ Plugin 'tpope/vim-sensible'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'jpalardy/vim-slime'
 "Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kevinw/pyflakes-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'kien/rainbow_parentheses.vim'
 
@@ -32,14 +31,11 @@ Plugin 'vim-scripts/CmdlineComplete'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'edkolev/tmuxline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
-"if v:version >= 703
 Plugin 'sjl/gundo.vim'
-"endif
 Plugin 'VisIncr'
 Plugin 'alfredodeza/pytest.vim'
 Plugin 'rking/ag.vim'
@@ -68,6 +64,7 @@ call vundle#end()
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set nosmarttab
 set tabpagemax=20
 set expandtab
 set shiftround
@@ -170,7 +167,7 @@ let g:pyflakes_use_quickfix = 0
 " UltiSnips {
 " Trigger configuration.
 " Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<left-shift>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -184,6 +181,7 @@ let g:ycm_global_ycm_extra_conf = '/home/user/.vim/bundle/YouCompleteMe/.ycm_ext
 let g:ycm_python_binary_path = 'python'
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 " }
 
 hi LeadingSpace ctermbg=darkblue guibg=Black

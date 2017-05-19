@@ -146,14 +146,24 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height=5
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_quiet_messages = { "type": "style" }
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_quiet_messages = {
+        \ "!level":  "errors",
+        \ "type":    "style",
+        \ "regex":   '.*',
+        \ "file:p":  '.*' }
 
 map <F3> :SyntasticCheck python<CR>
 " }
 
-" Falk8{
+" pylint{
+let g:pymode_lint_write = 0       "turn off running pylint on file save
+nnoremap <leader>p :PyLint<cr>    "pressing ,p will run plyint on current buffer"
+" }
+
+" Flake8{
 let g:PyFlakeOnWrite = 1
 let g:PyFlakeCheckers = 'pep8,mccabe,frosted'
 let g:pyflakes_use_quickfix = 0
@@ -253,9 +263,8 @@ let g:rbpt_colorpairs = [
     \ ['black',       'SeaGreen3'],
     \ ['Darkblue',    'firebrick3'],
     \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkgreen',   'RoyalBlue3'],
     \ ['darkcyan',    'SeaGreen3'],
-    \ ['red',         'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
     \ ]
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
@@ -283,4 +292,9 @@ nmap <silent><Leader>f <Esc>:Pytest file<CR>
 "nmap <silent><Leader>c <Esc>:Pytest class<CR>
 "nmap <silent><Leader>m <Esc>:Pytest method<CR>
 "nmap <silent><Leader>s <Esc>:Pytest session<CR>
+" }
+
+" colorcolumn {
+highlight ColorColumn guibg=Black
+highlight ColorColumn ctermbg=5
 " }

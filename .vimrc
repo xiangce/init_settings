@@ -104,6 +104,15 @@ let python_highlight_all = 1
 "set foldcolumn=5
 " }
 
+" Color {
+"colorscheme default
+"colorscheme desert256
+colorscheme railscasts
+hi CursorColumn ctermbg=black guibg=black
+hi CursorLine cterm=UnderLine ctermbg=black guibg=black
+set term=screen-256color
+" }
+
 " Undo {
 nnoremap <F5> :GundoToggle<CR>
 set undodir=/home/user/.vim/undo/
@@ -283,17 +292,4 @@ nmap <silent><Leader>f <Esc>:Pytest file<CR>
 "nmap <silent><Leader>c <Esc>:Pytest class<CR>
 "nmap <silent><Leader>m <Esc>:Pytest method<CR>
 "nmap <silent><Leader>s <Esc>:Pytest session<CR>
-" }
-
-" colorcolumn {
-colorscheme railscasts
-highlight ColorColumn ctermbg=red guibg=black
-highlight CursorColumn ctermbg=darkgray guibg=blue
-highlight ColorLine ctermbg=red guibg=black
-highlight CursorLine ctermbg=darkgray guibg=blue
-set term=screen-256color
-"colorscheme default
-"colorscheme desert256
-"}
-
 " }

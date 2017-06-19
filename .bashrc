@@ -28,11 +28,7 @@ PS1="╭[${CWho}\u${NOC}] ${CPwd}\w${CGit}\$(__git_ps1 ' (%s)')${NOC}\n╰>${NOC
 # Alias
 #alias gohadoop='ssh xialiu@hadoop1.gsslab.rdu2.redhat.com'
 alias gohadoop='ssh xialiu@hadoop-test-1.gsslab.rdu2.redhat.com'
-alias active_core='source ~/work/insights/insights-core/bin/activate'
-alias active_plugins='source ~/work/insights/insights-plugins/bin/activate'
-alias active_content='source ~/work/insights/insights-content/bin/activate'
-alias active_diag_insights_rules='source ~/work/insights/diag-insights-rules/bin/activate'
-alias review_source='source bin/activate'
+alias active_source='source bin/activate'
 alias free='free -h'
 alias mute='amixer set Master mute'
 alias unmute='amixer set Master unmute'

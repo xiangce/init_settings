@@ -108,7 +108,8 @@ let python_highlight_all = 1
 "colorscheme default
 "colorscheme desert256
 colorscheme railscasts
-hi CursorColumn ctermbg=black guibg=black
+hi ColorColumn cterm=None ctermbg=darkred guibg=black
+hi CursorColumn cterm=None ctermbg=black guibg=black
 hi CursorLine cterm=UnderLine ctermbg=black guibg=black
 set term=screen-256color
 " }

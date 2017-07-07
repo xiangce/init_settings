@@ -20,7 +20,7 @@ NOC="\[\033[0m\]"
 
 #PS1="${CBG}[${CWho}\u${NOC}${CBG}] ${CPwd}\w${CGit}\$(__git_ps1 ' (%s)')${NOC}${CBG}\n->${NOC} "
 #┌└ ╒╘ ╭╰ ╓╙ ╚ ╔
-PS1="╭[${CWho}\u${NOC}] ${CPwd}\w${CGit}\$(__git_ps1 ' (%s)')${NOC}\n╰>${NOC} "
+PS1="╭[${CWho}\h${NOC}] ${CPwd}\w${CGit}\$(__git_ps1 ' (%s)')${NOC}\n╰>${NOC} "
 
 
 # }
@@ -58,6 +58,3 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 
 # hub + git
 eval "$(hub alias -s)"
-function httpless {
-    https --pretty=all --print=hb "$@" | less -R;
-}

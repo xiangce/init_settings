@@ -2,11 +2,12 @@
     br = branch
     co = checkout
     ci = commit
+    cp = cherry-pick
     st = status
     pl = pull
     ls = log --stat --graph
-    mylog = log --stat --author=xiangce --since=1.week
-    last = log -1 HEAD
+    mylog = ls --author=xiangce --since=1.week
+    last = ls -1 HEAD
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [user]
     name = Xiangce Liu

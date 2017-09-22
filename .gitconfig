@@ -1,7 +1,7 @@
 [alias]
     br = branch
     co = checkout
-    ci = commit
+    ci = commit -s
     cp = cherry-pick
     st = status
     pl = pull

@@ -11,9 +11,12 @@ Plugin 'VundleVim/Vundle.vim'
 " Programming
 " git
 Plugin 'tpope/vim-fugitive'
+"Plugin 'airblade/vim-gitgutter'
+
 " Comment with gcc
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
+
 " Automatic closing
 Plugin 'Raimondi/delimitMate'
 "Plugin 'jpalardy/vim-slime'
@@ -39,6 +42,9 @@ Plugin 'sjl/gundo.vim'
 Plugin 'VisIncr'
 Plugin 'alfredodeza/pytest.vim'
 Plugin 'rking/ag.vim'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'edkolev/tmuxline.vim'
 
 " Format
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -49,10 +55,10 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "Plugin 'itchyny/calendar.vim'
 "Plugin 'DrawIt'
 
-" Color
+" Color Theme
 "Plugin 'desert256.vim'
 Plugin 'jpo/vim-railscasts-theme'
-Plugin 'pdf/vim-railscasts'
+"Plugin 'pdf/vim-railscasts'
 "Plugin 'altercation/vim-colors-solarized'
 "Plugin 'ciaranm/inkpot'
 "Plugin 'tpope/vim-vividchalk'
@@ -124,9 +130,12 @@ let g:gundo_right = 1
 
 " airline {
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:tmuxline_powerline_separators = 0
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#tabline#formatter = 'default'
 " }
 
 " indent_guides {
@@ -286,6 +295,17 @@ if has("cscope")
     nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     map <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
+" }
+
+" gitgutter {
+" let g:gitgutter_override_sign_column_highlight = 0
+" highlight SignColumn ctermbg=red    " terminal Vim
+" highlight SignColumn guibg=darkred  " gVim/MacVim
+" if exists('&signcolumn')  " Vim 7.4.2201
+"     set signcolumn=yes
+" else
+"     let g:gitgutter_sign_column_always = 1
+" endif
 " }
 
 " Pytest {

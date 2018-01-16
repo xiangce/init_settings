@@ -56,8 +56,8 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "Plugin 'DrawIt'
 
 " Color Theme
-Plugin 'pdf/vim-railscasts'
-"Plugin 'jpo/vim-railscasts-theme'
+"Plugin 'pdf/vim-railscasts'
+Plugin 'jpo/vim-railscasts-theme'
 "Plugin 'altercation/vim-colors-solarized'
 "Plugin 'desert256.vim'
 "Plugin 'ciaranm/inkpot'

@@ -26,20 +26,21 @@ PS1="╭[${CWho}\h${NOC}] ${CPwd}\w${CGit}\$(__git_ps1 ' (%s)')${NOC}\n╰>${NOC
 # }
 
 # Alias
-#alias gohadoop='ssh xialiu@hadoop1.gsslab.rdu2.redhat.com'
+# alias gohadoop='ssh xialiu@hadoop1.gsslab.rdu2.redhat.com'
 alias gohadoop='ssh xialiu@hadoop-test-1.gsslab.rdu2.redhat.com'
 alias active_source='source bin/activate'
 alias free='free -h'
 alias mute='amixer set Master mute'
 alias unmute='amixer set Master unmute'
 alias rm.pyc='find -name "*.pyc" -exec rm {} \;'
-alias tmux-restore='~/tmux-session restore && tmux a'
+# alias tmux-restore='~/tmux-session restore && tmux a'
+alias git-db='git br | grep -v "\*" | xargs git br -D'
 
 # # tmux
 # If not running interactively, do not do anything
 #[[ $- != *i* ]] && return
 #[[ -z "$TMUX" ]] && exec tmux
-alias tmux='tmux -2'
+# alias tmux='tmux -2'
 export TERM='screen-256color'
 
 # History Setting {

@@ -32,6 +32,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 " Utility
 Plugin 'vim-scripts/CmdlineComplete'
 Plugin 'tpope/vim-surround'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
@@ -71,6 +72,7 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 " set nosmarttab
+set noshowmode
 set softtabstop=4
 set tabpagemax=20
 set expandtab
@@ -130,12 +132,12 @@ let g:gundo_right = 1
 " }
 
 " airline {
+"let g:tmuxline_theme = 'airline_insert'
 let g:airline_powerline_fonts = 1
-let g:tmuxline_powerline_separators = 0
-"let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 0
+"let g:airline#extensions#tabline#left_sep = '➤ '
+"let g:airline#extensions#tabline#left_alt_sep = '➤ '
 let g:airline#extensions#tabline#formatter = 'default'
 " }
 

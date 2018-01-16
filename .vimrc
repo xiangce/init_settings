@@ -56,10 +56,10 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "Plugin 'DrawIt'
 
 " Color Theme
-"Plugin 'desert256.vim'
-Plugin 'jpo/vim-railscasts-theme'
-"Plugin 'pdf/vim-railscasts'
+Plugin 'pdf/vim-railscasts'
+"Plugin 'jpo/vim-railscasts-theme'
 "Plugin 'altercation/vim-colors-solarized'
+"Plugin 'desert256.vim'
 "Plugin 'ciaranm/inkpot'
 "Plugin 'tpope/vim-vividchalk'
 "Plugin 'tomasr/molokai'
@@ -69,8 +69,9 @@ call vundle#end()
 " settings {
 set tabstop=4
 set shiftwidth=4
+set smarttab
+" set nosmarttab
 set softtabstop=4
-set nosmarttab
 set tabpagemax=20
 set expandtab
 set shiftround

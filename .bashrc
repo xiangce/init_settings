@@ -12,15 +12,18 @@ fi
 # PS1 {
 source ~/.git-prompt.sh
 
-CPwd="\[\033[38;5;33m\]"
-CWho="\[\033[38;5;202m\]"
-CGit="\[\033[38;5;3m\]"
-CBG="\[\033[48;5;236m\]"
-NOC="\[\033[0m\]"
-
-#PS1="${CBG}[${CWho}\u${NOC}${CBG}] ${CPwd}\w${CGit}\$(__git_ps1 ' (%s)')${NOC}${CBG}\n->${NOC} "
+CWhoS="\[\e[30;103m\]"
+CWhoE="\[\e[93;100m\]"
+CPwdS="\[\e[97;100m\]"
+CPwdE="\[\e[90;40m\]"
+CGitS="\[\e[96;40m\]"
+CGitE="\[\e[30;49m\]"
+C2S="\[\e[30;100m\]"
+C2E="\[\e[90;49m\]"
+NOC="\[\e[m\]"
+#PS1="[${CWho}\u${NOC}${CBG}] ${CPwd}\w${CGit}\$(__git_ps1 ' (%s)')${NOC}${CBG}\n->${NOC} "
 #┌└ ╒╘ ╭╰ ╓╙ ╚ ╔
-PS1="╭[${CWho}\h${NOC}] ${CPwd}\w${CGit}\$(__git_ps1 ' (%s)')${NOC}\n╰>${NOC} "
+PS1="${CWhoS}┌\h${CWhoE}${CPwdS}\w${CPwdE}${CGitS}\$(__git_ps1 ' %s') ${CGitE}${NOC}\n${C2S}└${C2E}${NOC}"
 
 
 # }
@@ -53,8 +56,6 @@ HISTTIMEFORMAT='%F %T: '
 shopt -s histappend
 shopt -s cmdhist
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-#PROMPT_COMMAND='printf "\033k%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
 # }
 
 # hub + git

@@ -1,9 +1,7 @@
 set nocompatible              " be iMproved, required
-filetype on                   " required
-filetype plugin on
-filetype plugin indent on
+filetype off                  " required
 
-set rtp+=/home/user/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin('$HOME/.vim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
@@ -19,22 +17,19 @@ Plugin 'tpope/vim-sensible'
 
 " Automatic closing
 Plugin 'Raimondi/delimitMate'
-"Plugin 'jpalardy/vim-slime'
-"Plugin 'majutsushi/tagbar'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'nvie/vim-flake8'
 Plugin 'kien/rainbow_parentheses.vim'
 
 " Utility
 Plugin 'vim-scripts/CmdlineComplete'
 Plugin 'tpope/vim-surround'
-" Plugin 'itchyny/lightline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -46,6 +41,7 @@ Plugin 'rking/ag.vim'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'nvie/vim-flake8'
 
 " Format
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -60,23 +56,37 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "Plugin 'pdf/vim-railscasts'
 Plugin 'jpo/vim-railscasts-theme'
 "Plugin 'altercation/vim-colors-solarized'
-"Plugin 'desert256.vim'
-"Plugin 'ciaranm/inkpot'
-"Plugin 'tpope/vim-vividchalk'
-"Plugin 'tomasr/molokai'
 
 call vundle#end()
 
-" settings {
+" filetype plugin on
+syntax enable
+filetype plugin indent on
+
+" cool settings without plugins {
+" 1. Search down into sub-folders
+set path+=**
+set wildmenu
+" 2. Make Tags inner vim
+command! MakeTags !ctags -R .
+" 3. Don't forget ^x^.
+" }
+" 4. Tweaks for browsing
+let g:netrw_branner=0
+let g:netrw_browser_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
 set tabstop=4
 set shiftwidth=4
-set smarttab
-" set nosmarttab
-set noshowmode
 set softtabstop=4
-set tabpagemax=20
+set smarttab
 set expandtab
+set tabpagemax=20
 set shiftround
+set noshowmode
 set background=light
 set mouse-=a
 set nowrap
@@ -96,7 +106,6 @@ set incsearch
 set backspace=indent,eol,start
 set laststatus=2
 set autoindent
-syntax on
 set formatoptions=trocq
 set noswapfile
 set hidden
@@ -136,8 +145,6 @@ let g:gundo_right = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
-"let g:airline#extensions#tabline#left_sep = '➤ '
-"let g:airline#extensions#tabline#left_alt_sep = '➤ '
 let g:airline#extensions#tabline#formatter = 'default'
 " }
 

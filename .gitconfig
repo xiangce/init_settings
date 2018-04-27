@@ -2,13 +2,13 @@
     br = branch
     co = checkout
     ci = commit
-    cp = cherry-pick
+    cp = cherry-pick -x
     st = status
     pl = pull
     ls = log --stat --graph
     mylog = ls --author=xiangce --since=1.week
     last = ls -1 HEAD
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    hist = log --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
 [user]
     name = Xiangce Liu
     email = xiangceliu@redhat.com

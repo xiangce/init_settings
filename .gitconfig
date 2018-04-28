@@ -8,7 +8,8 @@
     ls = log --stat --graph
     mylog = ls --author=xiangce --since=1.week
     last = ls -1 HEAD
-    hist = log --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
+    hist = log -16 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
+    allhist = log -16 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
 [user]
     name = Xiangce Liu
     email = xiangceliu@redhat.com

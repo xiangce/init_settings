@@ -31,7 +31,7 @@ PS1="${CWhoS}┌\h${CWhoE}${CPwdS}\w${CPwdE}${CGitS}\$(__git_ps1 ' %s')
 # Alias
 # alias gohadoop='ssh xialiu@hadoop1.gsslab.rdu2.redhat.com'
 alias gohadoop='ssh xialiu@hadoop-test-1.gsslab.rdu2.redhat.com'
-alias active_source='source bin/activate'
+alias sourceact='source bin/activate'
 alias free='free -h'
 alias mute='amixer set Master mute'
 alias unmute='amixer set Master unmute'
@@ -60,3 +60,8 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 
 # hub + git
 eval "$(hub alias -s)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

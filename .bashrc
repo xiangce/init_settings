@@ -37,7 +37,7 @@ alias mute='amixer set Master mute'
 alias unmute='amixer set Master unmute'
 alias rm.pyc='find -name "*.pyc" -exec rm {} \;'
 # alias tmux-restore='~/tmux-session restore && tmux a'
-alias git-db='git br | egrep -v "\*|master" | xargs git br -D'
+alias git-db='git br | egrep -v "\*| master" | xargs git br -D'
 
 # # tmux
 # If not running interactively, do not do anything

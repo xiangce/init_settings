@@ -94,6 +94,7 @@ set number
 set relativenumber
 set ruler
 set undofile
+set pastetoggle=<F3>
 
 setlocal spell spelllang=en_us
 
@@ -129,6 +130,7 @@ colorscheme railscasts
 hi ColorColumn cterm=None ctermbg=darkred guibg=black
 hi CursorColumn cterm=None ctermbg=black guibg=black
 hi CursorLine cterm=UnderLine ctermbg=black guibg=black
+hi Normal guibg=NONE ctermbg=NONE
 set term=screen-256color
 " }
 

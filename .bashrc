@@ -31,7 +31,7 @@ PS1="${CWhoS}┌\h${CWhoE}${CPwdS}\w${CPwdE}${CGitS}\$(__git_ps1 ' %s')
 # Alias
 # alias gohadoop='ssh xialiu@hadoop1.gsslab.rdu2.redhat.com'
 alias gohadoop='ssh xialiu@hadoop-test-1.gsslab.rdu2.redhat.com'
-alias sourceact='source bin/activate'
+alias sourceact='source .python2/bin/activate'
 alias free='free -h'
 alias mute='amixer set Master mute'
 alias unmute='amixer set Master unmute'

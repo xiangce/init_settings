@@ -1,3 +1,6 @@
+if has('python3')
+    silent! python3 1
+endif
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -28,8 +31,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'vim-scripts/CmdlineComplete'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'itchyny/lightline.vim'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -53,8 +56,9 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "Plugin 'DrawIt'
 
 " Color Theme
+"Plugin 'powerline/fonts'
 "Plugin 'pdf/vim-railscasts'
-Plugin 'jpo/vim-railscasts-theme'
+"Plugin 'jpo/vim-railscasts-theme'
 "Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
@@ -62,6 +66,12 @@ call vundle#end()
 " filetype plugin on
 syntax enable
 filetype plugin indent on
+
+" Basic Setting {
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+" }
 
 " cool settings without plugins {
 " 1. Search down into sub-folders
@@ -87,7 +97,6 @@ set expandtab
 set tabpagemax=20
 set shiftround
 set noshowmode
-set background=light
 set mouse-=a
 set nowrap
 set number
@@ -126,17 +135,18 @@ let python_highlight_all = 1
 " Color {
 "colorscheme default
 "colorscheme desert256
-colorscheme railscasts
+set background=light
+colorscheme evening
 hi ColorColumn cterm=None ctermbg=darkred guibg=black
 hi CursorColumn cterm=None ctermbg=black guibg=black
-hi CursorLine cterm=UnderLine ctermbg=black guibg=black
+hi CursorLine cterm=UnderLine ctermbg=NONE guibg=NONE
 hi Normal guibg=NONE ctermbg=NONE
 set term=screen-256color
 " }
 
 " Undo {
 nnoremap <F5> :GundoToggle<CR>
-set undodir=/home/liuxc/.vim/undo/
+set undodir=~/liuxc/.vim/undo/
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
@@ -156,7 +166,7 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesOdd  ctermbg=gray
 hi IndentGuidesEven ctermbg=darkgray
 " }
 
@@ -209,7 +219,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 " YouCompleteMe {
-let g:ycm_global_ycm_extra_conf = '/home/liuxc/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/liuxc/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']

@@ -1,5 +1,5 @@
 [alias]
-    br = branch
+    br = --no-pager branch
     co = checkout
     ci = commit
     cp = cherry-pick -x
@@ -8,7 +8,7 @@
     ls = log --stat --graph
     mylog = ls --author=xiangce --since=1.week
     last = ls -1 HEAD
-    hist = log -16 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
+    hist = --no-pager log -10 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
     allhist = log -16 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
 [user]
     name = Xiangce Liu

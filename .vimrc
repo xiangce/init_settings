@@ -14,6 +14,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/CmdlineComplete'
+"Plugin 'python-mode/python-mode'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'sirver/ultisnips'
@@ -30,23 +31,29 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 " }
 
 " Utility {
+Plugin 'scrooloose/nerdtree'
+" Plugin 'junegunn/fzf'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-repeat'
 Plugin 'chrisbra/vim-diff-enhanced'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'tpope/vim-eunuch'
 Plugin 'sjl/gundo.vim'
 " Plugin 'VisIncr'
+" Allow saving of files when I forgot to start vim with sudo.
+Plugin 'tpope/vim-eunuch'
+" cmap w!! w !sudo tee > /dev/null %
+
 " }
 
 " Programming {
-Plugin 'alfredodeza/pytest.vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'rking/ag.vim'
+Plugin 'w0rp/ale'
 Plugin 'tpope/vim-commentary'
+Plugin 'nvie/vim-flake8'
+Plugin 'rking/ag.vim'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'google/yapf'
+" Plugin 'vim-syntastic/syntastic'
 " Plugin 'scrooloose/nerdcommenter'
 " }
 
@@ -118,10 +125,8 @@ set noswapfile
 set hidden
 set complete=k,.,w,b,u,t,i
 
-" Allow saving of files when I forgot to start vim with sudo.
-cmap w!! w !sudo tee > /dev/null %
-
 let mapleader=','
+let maplocalleader='.'
 " }
 
 " Diff Options {
@@ -272,6 +277,9 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 " }
 
+nnoremap <buffer> <silent> <LocalLeader>= :ALEFix<CR>
+" }
+
 " Easy-Align {
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -352,4 +360,14 @@ nmap <silent><Leader>f <Esc>:Pytest file<CR>
 "nmap <silent><Leader>c <Esc>:Pytest class<CR>
 "nmap <silent><Leader>m <Esc>:Pytest method<CR>
 "nmap <silent><Leader>s <Esc>:Pytest session<CR>
+" }
+
+" ALE {
+let b:ale_linters = ['flake8', 'pylint']
+let b:ale_fixers = ['autopep8', 'remove_trailing_lines']
+nnoremap <buffer> <silent> <LocalLeader>= :ALEFix<CR>
+" }
+
+" Google formater {
+autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 " }

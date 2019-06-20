@@ -9,57 +9,57 @@ call vundle#begin('$HOME/.vim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 
-" Programming
-" git
-Plugin 'tpope/vim-fugitive'
-"Plugin 'airblade/vim-gitgutter'
-
-" Comment with gcc
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-sensible'
-
-" Automatic closing
-Plugin 'Raimondi/delimitMate'
-Plugin 'vim-syntastic/syntastic'
+" Automatic {
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'sirver/ultisnips'
-Plugin 'honza/vim-snippets'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/CmdlineComplete'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'sirver/ultisnips'
+" Plugin 'honza/vim-snippets'
+" }
+
+" Looking {
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/rainbow_parentheses.vim'
-
-" Utility
-Plugin 'vim-scripts/CmdlineComplete'
-Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'junegunn/vim-easy-align'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+" Plugin 'itchyny/lightline.vim'
+" }
+
+" Utility {
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-repeat'
+Plugin 'chrisbra/vim-diff-enhanced'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-eunuch'
 Plugin 'sjl/gundo.vim'
-Plugin 'VisIncr'
+" Plugin 'VisIncr'
+" }
+
+" Programming {
 Plugin 'alfredodeza/pytest.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-commentary'
+" Plugin 'scrooloose/nerdcommenter'
+" }
+
+" git {
+Plugin 'tpope/vim-fugitive'
+" Plugin 'airblade/vim-gitgutter'
+" }
+
+" Tmux {
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'nvie/vim-flake8'
-
-" Format
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-"Plugin 'Mark--Karkat'
-"Plugin 'FavEx'
-"Plugin 'thinca/vim-visualstar'
-"Plugin 'tpope/vim-unimpaired'
-"Plugin 'itchyny/calendar.vim'
-"Plugin 'DrawIt'
-
-" Color Theme
-"Plugin 'powerline/fonts'
-"Plugin 'pdf/vim-railscasts'
-"Plugin 'jpo/vim-railscasts-theme'
-"Plugin 'altercation/vim-colors-solarized'
+" }
 
 call vundle#end()
 
@@ -67,7 +67,7 @@ call vundle#end()
 syntax enable
 filetype plugin indent on
 
-" Basic Setting {
+" Last Position {
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -93,19 +93,16 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set smarttab
-set expandtab
-set tabpagemax=20
 set shiftround
+set expandtab
 set noshowmode
 set mouse-=a
 set nowrap
 set number
 set relativenumber
 set ruler
-set undofile
 set pastetoggle=<F3>
-
-setlocal spell spelllang=en_us
+set tabpagemax=20
 
 set cursorline
 set cursorcolumn
@@ -121,7 +118,15 @@ set noswapfile
 set hidden
 set complete=k,.,w,b,u,t,i
 
+" Allow saving of files when I forgot to start vim with sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 let mapleader=','
+" }
+
+" Diff Options {
+set diffopt+=algorithm:patience
+set diffopt+=indent-heuristic
 " }
 
 " Fold {
@@ -133,8 +138,6 @@ let python_highlight_all = 1
 " }
 
 " Color {
-"colorscheme default
-"colorscheme desert256
 set background=light
 colorscheme evening
 hi ColorColumn cterm=None ctermbg=darkred guibg=black
@@ -142,11 +145,25 @@ hi CursorColumn cterm=None ctermbg=black guibg=black
 hi CursorLine cterm=UnderLine ctermbg=NONE guibg=NONE
 hi Normal guibg=NONE ctermbg=NONE
 set term=screen-256color
+
+hi LeadingSpace ctermbg=darkblue guibg=Black
+match LeadingSpace /^\s\+/
+"hi EndingExcess ctermbg=red guibg=Black
+"match EndingExcess /\%81v.*/
+hi EndingBlank ctermbg=red guibg=Black
+match EndingBlank /\s\+$/
 " }
 
+" SpellBad {
+setlocal spell spelllang=en_us
+hi clear SpellBad
+hi SpellBad cterm=underline
+" }
+"
 " Undo {
 nnoremap <F5> :GundoToggle<CR>
-set undodir=~/user/.vim/undo/
+set undodir="~/.vim/undo/"
+set undofile
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
@@ -154,17 +171,19 @@ let g:gundo_right = 1
 
 " airline {
 "let g:tmuxline_theme = 'airline_insert'
+set encoding=utf-8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'default'
+let g:Powerline_symbols='unicode'
+"set guifont=DroidSansMono\ Nerd\ Font
 " }
 
 " indent_guides {
+let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=gray
 hi IndentGuidesEven ctermbg=darkgray
@@ -226,13 +245,6 @@ let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 " }
 
-hi LeadingSpace ctermbg=darkblue guibg=Black
-match LeadingSpace /^\s\+/
-"hi EndingExcess ctermbg=red guibg=Black
-"match EndingExcess /\%81v.*/
-hi EndingBlank ctermbg=red guibg=Black
-match EndingBlank /\s\+$/
-
 " CtrlP {
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_prompt_mappings = { 'PrtCurLeft()': ['<left>', '<c-^>'] }
@@ -253,7 +265,7 @@ let g:ctrlp_custom_ignore = {
 " }
 
 " NerdTree {
-map <F2> :NERDTreeToggle<CR>
+map <c-a> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -269,16 +281,16 @@ nmap ga <Plug>(EasyAlign)
 
 "Easy Motion {
 " <Leader>f{char} to move to {char}
-" map  <Leader>f <Plug>(easymotion-bd-f)
-" nmap <Leader>f <Plug>(easymotion-overwin-f)
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
 " " s{char}{char} to move to {char}{char}
-" nmap <Leader>s <Plug>(easymotion-overwin-f2)
+ nmap <Leader>s <Plug>(easymotion-overwin-f2)
 "" Move to line
 map <Leader><Leader>g <Plug>(easymotion-bd-jk)
 nmap <Leader><Leader>g <Plug>(easymotion-overwin-line)
 " "" Move to word
-" map  <Leader>w <Plug>(easymotion-bd-w)
-" nmap <Leader>w <Plug>(easymotion-overwin-w
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w
 " }
 
 " Rainbow Parentheses
@@ -317,6 +329,11 @@ if has("cscope")
     nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     map <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
+
+" GNU Global
+let GtagsCscope_Auto_Load = 1
+let GtagsCscope_Auto_Map = 1
+let GtagsCscope_Quiet = 1
 " }
 
 " gitgutter {

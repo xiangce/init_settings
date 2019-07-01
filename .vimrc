@@ -38,7 +38,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-repeat'
 Plugin 'chrisbra/vim-diff-enhanced'
-Plugin 'sjl/gundo.vim'
+Plugin 'mbbill/undotree'
+" Plugin 'sjl/gundo.vim'
 " Plugin 'VisIncr'
 " Allow saving of files when I forgot to start vim with sudo.
 Plugin 'tpope/vim-eunuch'
@@ -126,7 +127,7 @@ set hidden
 set complete=k,.,w,b,u,t,i
 
 let mapleader=','
-let maplocalleader='.'
+" let maplocalleader='.'
 " }
 
 " Diff Options {
@@ -166,12 +167,9 @@ hi SpellBad cterm=underline
 " }
 "
 " Undo {
-nnoremap <F5> :GundoToggle<CR>
-set undodir="~/.vim/undo/"
+nnoremap <F5> :UndotreeToggle<cr>
+set undodir=~/.vim/undo
 set undofile
-let g:gundo_width = 60
-let g:gundo_preview_height = 40
-let g:gundo_right = 1
 " }
 
 " airline {
@@ -243,7 +241,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 " YouCompleteMe {
-"let g:ycm_global_ycm_extra_conf = '~/liuxc/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/liuxc/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
@@ -277,8 +275,6 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 " }
 
-nnoremap <buffer> <silent> <LocalLeader>= :ALEFix<CR>
-" }
 
 " Easy-Align {
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -356,18 +352,20 @@ let GtagsCscope_Quiet = 1
 " }
 
 " Pytest {
-nmap <silent><Leader>f <Esc>:Pytest file<CR>
+nmap <silent><leader>f <Esc>:Pytest file<CR>
 "nmap <silent><Leader>c <Esc>:Pytest class<CR>
 "nmap <silent><Leader>m <Esc>:Pytest method<CR>
 "nmap <silent><Leader>s <Esc>:Pytest session<CR>
 " }
 
 " ALE {
-let b:ale_linters = ['flake8', 'pylint']
-let b:ale_fixers = ['autopep8', 'remove_trailing_lines']
-nnoremap <buffer> <silent> <LocalLeader>= :ALEFix<CR>
+" let b:ale_linters = ['pylint', 'flake8']
+" let b:ale_fixers = ['autopep8', 'remove_trailing_lines']
+" nmap <silent> <leader>n :ALENext<cr>
+" nmap <silent> <leader>N :ALEPrevious<cr>
+" " nnoremap <buffer> <silent> <LocalLeader>= :ALEFix<CR>
 " }
 
 " Google formater {
-autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
+" autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 " }

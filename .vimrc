@@ -23,7 +23,9 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " Looking {
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kien/rainbow_parentheses.vim'
+" Plugin 'kien/rainbow_parentheses.vim'
+" Plugin 'luochen1990/rainbow'
+Plugin 'frazrepo/vim-rainbow'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -297,29 +299,9 @@ map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w
 " }
 
-" Rainbow Parentheses
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" rainbow Parentheses
+let g:rainbow_active = 1
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta', 'blue']
 " }
 
 " cscope {
@@ -361,8 +343,8 @@ nmap <silent><leader>f <Esc>:Pytest file<CR>
 " ALE {
 " let b:ale_linters = ['pylint', 'flake8']
 " let b:ale_fixers = ['autopep8', 'remove_trailing_lines']
-" nmap <silent> <leader>n :ALENext<cr>
-" nmap <silent> <leader>N :ALEPrevious<cr>
+nmap <silent> <leader>n :ALENext<cr>
+nmap <silent> <leader>N :ALEPrevious<cr>
 " " nnoremap <buffer> <silent> <LocalLeader>= :ALEFix<CR>
 " }
 

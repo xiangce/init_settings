@@ -11,6 +11,7 @@ export ZSH="/Users/liuxc/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -63,25 +64,41 @@ export UPDATE_ZSH_DAYS=2
 # For Plugins
 export ZSH_TMUX_AUTOSTART="true"
 export ZSH_TMUX_AUTOQUIT="false"
-export ALIEN_THEME=blue
-export ALIEN_SECTIONS_LEFT=(
-  exit
-  time
-  user
-  path
-  vcs_branch:async
-  vcs_status:async
-  vcs_dirty:async
-  newline
-  ssh
-  venv
-  prompt
-)
-export ALIEN_SECTION_TIME_FORMAT=%H:%M:%S
-export USE_NERD_FONT=1
-export PLIB_GIT_TRACKED_COLOR=green
-export PLIB_GIT_UNTRACKED_COLOR=red
+# export ALIEN_THEME=blue
+# export ALIEN_SECTIONS_LEFT=(
+#   exit
+#   time
+#   user
+#   path
+#   vcs_branch:async
+#   vcs_status:async
+#   vcs_dirty:async
+#   newline
+#   ssh
+#   venv
+#   prompt
+# )
+# export ALIEN_SECTION_TIME_FORMAT=%H:%M:%S
+# export ALIEN_USE_NERD_FONT
+# export PLIB_GIT_TRACKED_COLOR=green
+# export PLIB_GIT_UNTRACKED_COLOR=red
+# Set username to consider a default context, which by default will not be shown.
+# https://github.com/bhilburn/powerlevel9k/blob/next/segments/context/README.md
+# DEFAULT_USER='liuxc'
 
+# Set P9KGT color scheme, either 'light', 'dark' or 'bright' (choose by preference).
+P9KGT_COLORS='bright'
+# Set P9KGT background color, either 'light' or 'dark' (this should match the GNOME Terminal's theme).
+P9KGT_BACKGROUND='dark'
+POWERLEVEL9K_COLOR_SCHEME='dark'
+P9KGT_TERMINAL_BACKGROUND=236
+# Set P9KGT fonts mode, either 'default', 'awesome-fontconfig', 'awesome-mapped-fontconfig', 'awesome-patched', 'nerdfont-complete' or 'nerdfont-fontconfig'.
+#P9KGT_FONTS='awesome-fontconfig'
+P9KGT_FONTS='nerdfont-complete'
+POWERLEVEL9K_MODE=$P9KGT_FONTS
+# Customize prompt
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir_writable dir vcs newline os_icon)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time ip background_jobs)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -92,7 +109,6 @@ plugins=(
   python
   github
   gitfast
-  alien
   tmux
   zsh-completions
   zsh-autosuggestions
@@ -151,18 +167,23 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gohadoop='ssh xialiu@hadoop-test-1.gsslab.rdu2.redhat.com'
+# python virtualenv
+alias python='/usr/local/bin/python3.7'
 alias s2='deactivate 2> /dev/null; source .python2/bin/activate'
 alias s3='deactivate 2> /dev/null; source .python3/bin/activate'
 alias s='s3'
-alias gcp3='gco 3.0 && gup && git hm; echo "\n"; git h'
-alias gcp='gcp -x'
-alias free='free -h'
+# tools
 alias vi='vim'
-alias ff='find . | grep'
+# git
+alias gcpx='gcp -x'
+alias gcp3='gup && gco 3.0 && gup && git hm; echo "\n"; git h'
+alias pyc='pyclean'
+alias pyt='py.test'
 alias rm.br='git branch | egrep -v "\*| master" | xargs git branch -D'
 alias git=hub
-
+# system
+alias free='free -h'
+alias ff='find . | grep'
 # Servers
 alias login_insights_dev_rhel7='ssh root@10.72.32.215'
 alias login_tomcat_apache_rhel7='ssh root@10.72.32.219'

@@ -16,7 +16,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/CmdlineComplete'
 "Plugin 'python-mode/python-mode'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
+Plugin 'fatih/vim-go'
 " Plugin 'sirver/ultisnips'
 " Plugin 'honza/vim-snippets'
 " }
@@ -301,7 +302,7 @@ nmap <Leader>w <Plug>(easymotion-overwin-w
 
 " rainbow Parentheses
 let g:rainbow_active = 1
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta', 'blue']
+let g:rainbow_ctermfgs = ['lightblue', 'yellow', 'lightgreen', 'red', 'magenta', 'blue']
 " }
 
 " cscope {

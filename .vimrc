@@ -17,7 +17,7 @@ Plugin 'vim-scripts/CmdlineComplete'
 "Plugin 'python-mode/python-mode'
 Plugin 'junegunn/vim-easy-align'
 " Plugin 'terryma/vim-multiple-cursors'
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 " Plugin 'sirver/ultisnips'
 " Plugin 'honza/vim-snippets'
 " }

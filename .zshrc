@@ -97,7 +97,7 @@ P9KGT_TERMINAL_BACKGROUND=236
 P9KGT_FONTS='nerdfont-complete'
 POWERLEVEL9K_MODE=$P9KGT_FONTS
 # Customize prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir_writable dir vcs newline os_icon)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir_writable dir virtualenv vcs newline os_icon)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time ip background_jobs)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)

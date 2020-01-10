@@ -64,28 +64,9 @@ export UPDATE_ZSH_DAYS=2
 # For Plugins
 export ZSH_TMUX_AUTOSTART="true"
 export ZSH_TMUX_AUTOQUIT="false"
-# export ALIEN_THEME=blue
-# export ALIEN_SECTIONS_LEFT=(
-#   exit
-#   time
-#   user
-#   path
-#   vcs_branch:async
-#   vcs_status:async
-#   vcs_dirty:async
-#   newline
-#   ssh
-#   venv
-#   prompt
-# )
-# export ALIEN_SECTION_TIME_FORMAT=%H:%M:%S
-# export ALIEN_USE_NERD_FONT
-# export PLIB_GIT_TRACKED_COLOR=green
-# export PLIB_GIT_UNTRACKED_COLOR=red
 # Set username to consider a default context, which by default will not be shown.
 # https://github.com/bhilburn/powerlevel9k/blob/next/segments/context/README.md
 # DEFAULT_USER='user'
-
 # Set P9KGT color scheme, either 'light', 'dark' or 'bright' (choose by preference).
 P9KGT_COLORS='bright'
 # Set P9KGT background color, either 'light' or 'dark' (this should match the GNOME Terminal's theme).
@@ -99,6 +80,8 @@ POWERLEVEL9K_MODE=$P9KGT_FONTS
 # Customize prompt
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir_writable dir virtualenv vcs newline os_icon)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time ip background_jobs)
+POWERLEVEL9K_VIRTUALENV_BACKGROUND="cyan"
+POWERLEVEL9K_VIRTUALENV_FOREGROUND="orangered1"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -168,7 +151,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # python virtualenv
-alias python='/usr/local/bin/python3.7'
+#alias python='/usr/local/bin/python3.7'
 alias s2='deactivate 2> /dev/null; source .python2/bin/activate'
 alias s3='deactivate 2> /dev/null; source .python3/bin/activate'
 alias s='s3'
@@ -186,6 +169,7 @@ alias free='free -h'
 alias ff='find . | grep'
 # Servers
 alias login_insights_dev_rhel7='ssh root@10.72.32.215'
+alias login_insights_gsslab='ssh root@insights-plugins.vm.gsslab.pek2.redhat.com'
 alias login_tomcat_apache_rhel7='ssh root@10.72.32.219'
 alias login_sat6_rhel7='ssh root@10.72.32.205'
 alias login_rhel8_beta='ssh root@10.72.37.245'
@@ -195,6 +179,8 @@ alias login_sat6_rhel8_2='ssh root@10.72.32.193'
 alias login_hana_rhel6='ssh root@10.66.208.130'
 alias login_hana_rhel7='ssh root@10.66.208.132'
 alias login_hana2_rhel7='ssh root@10.72.37.54'
-alias login_sap_rhemv='ssh root@10.72.37.39'
+alias login_sap_rhemv='ssh root@10.72.35.176'
+alias login_insights_engine='ssh root@10.72.32.142'
+
 
 autoload -U compinit && compinit

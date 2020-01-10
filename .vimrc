@@ -117,8 +117,8 @@ set tabpagemax=20
 
 set cursorline
 set cursorcolumn
-set colorcolumn=80
-set textwidth=80
+set colorcolumn=79
+set textwidth=79
 set hlsearch
 set incsearch
 set backspace=indent,eol,start

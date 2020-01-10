@@ -1,13 +1,13 @@
 [alias]
-    ; co = checkout
-    ; ci = commit -s
+    co = checkout
+    ci = commit -s
     cp = cherry-pick -x
-    ; st = status
-    ; pl = pull
-    ; plr = pull -r
-    ; st = status
-    ; cb = co -b
-    ; ls = log --stat --graph
+    st = status
+    pl = pull
+    plr = pull -r
+    st = status
+    cb = co -b
+    ls = log --stat --graph
     br = "!git --no-pager branch"
     ; lh = "!git --no-pager ls -2 HEAD"
     ; lm = ls --author=xiangce --since=1.week

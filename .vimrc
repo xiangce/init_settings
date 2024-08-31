@@ -16,6 +16,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/CmdlineComplete'
 "Plugin 'python-mode/python-mode'
 Plugin 'junegunn/vim-easy-align'
+" Plugin '907th/vim-auto-save'
 " Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'fatih/vim-go'
 " Plugin 'sirver/ultisnips'
@@ -55,7 +56,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'tpope/vim-commentary'
 Plugin 'nvie/vim-flake8'
 Plugin 'rking/ag.vim'
-Plugin 'alfredodeza/pytest.vim'
+" Plugin 'alfredodeza/pytest.vim'
 Plugin 'google/yapf'
 " Plugin 'vim-syntastic/syntastic'
 " Plugin 'scrooloose/nerdcommenter'
@@ -128,9 +129,18 @@ set formatoptions=trocq
 set noswapfile
 set hidden
 set complete=k,.,w,b,u,t,i
+set nofixendofline
+set updatetime=300
 
 let mapleader=','
 " let maplocalleader='.'
+" }
+
+" AutoSave {
+" let g:auto_save = 1  " enable AutoSave on Vim startup"
+" let g:auto_save_events = ["InsertLeave", "CursorHold", "CursorHoldI"]
+" let g:auto_save_write_all_buffers = 1  " write all open buffers as if you would use :wa"
+" let g:auto_save_presave_hook = 'call AbortIfNotGitDirectory()'
 " }
 
 " Diff Options {
@@ -244,7 +254,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 " YouCompleteMe {
-let g:ycm_global_ycm_extra_conf = '~/user/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/liuxc/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
@@ -352,3 +362,6 @@ nmap <silent> <leader>N :ALEPrevious<cr>
 " Google formater {
 " autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 " }
+
+" fix: RuntimeError: Cannot find Python interpreter path python.
+let g:ycm_python_binary_path='python3'

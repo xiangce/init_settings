@@ -51,7 +51,7 @@ Plugin 'tpope/vim-eunuch'
 " }
 
 " Programming {
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'tpope/vim-commentary'
 Plugin 'nvie/vim-flake8'
 Plugin 'rking/ag.vim'

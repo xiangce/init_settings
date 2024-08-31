@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/Users/user/Library/Python/3.7/bin:$PATH
+export PATH=/Users/liuxc/Library/Python/3.7/bin:$PATH
 export LC_ALL=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/user/.oh-my-zsh"
+export ZSH="/Users/liuxc/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -66,7 +66,7 @@ export ZSH_TMUX_AUTOSTART="true"
 export ZSH_TMUX_AUTOQUIT="false"
 # Set username to consider a default context, which by default will not be shown.
 # https://github.com/bhilburn/powerlevel9k/blob/next/segments/context/README.md
-# DEFAULT_USER='user'
+# DEFAULT_USER='liuxc'
 # Set P9KGT color scheme, either 'light', 'dark' or 'bright' (choose by preference).
 P9KGT_COLORS='bright'
 # Set P9KGT background color, either 'light' or 'dark' (this should match the GNOME Terminal's theme).

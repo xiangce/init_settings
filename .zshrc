@@ -1,37 +1,45 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/Users/liuxc/Library/Python/3.7/bin:$PATH
-export LC_ALL=en_US.UTF-8
+# export PATH=$HOME/bin:/usr/local/bin:/usr/bin/:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/liuxc/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-# ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=2
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -40,15 +48,18 @@ export UPDATE_ZSH_DAYS=2
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -56,43 +67,21 @@ export UPDATE_ZSH_DAYS=2
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# For Plugins
-export ZSH_TMUX_AUTOSTART="true"
-export ZSH_TMUX_AUTOQUIT="false"
-# Set username to consider a default context, which by default will not be shown.
-# https://github.com/bhilburn/powerlevel9k/blob/next/segments/context/README.md
-# DEFAULT_USER='liuxc'
-# Set P9KGT color scheme, either 'light', 'dark' or 'bright' (choose by preference).
-P9KGT_COLORS='bright'
-# Set P9KGT background color, either 'light' or 'dark' (this should match the GNOME Terminal's theme).
-P9KGT_BACKGROUND='dark'
-POWERLEVEL9K_COLOR_SCHEME='dark'
-P9KGT_TERMINAL_BACKGROUND=236
-# Set P9KGT fonts mode, either 'default', 'awesome-fontconfig', 'awesome-mapped-fontconfig', 'awesome-patched', 'nerdfont-complete' or 'nerdfont-fontconfig'.
-#P9KGT_FONTS='awesome-fontconfig'
-P9KGT_FONTS='nerdfont-complete'
-POWERLEVEL9K_MODE=$P9KGT_FONTS
-# Customize prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir_writable dir virtualenv vcs newline os_icon)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time ip background_jobs)
-POWERLEVEL9K_VIRTUALENV_BACKGROUND="cyan"
-POWERLEVEL9K_VIRTUALENV_FOREGROUND="orangered1"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
   python
-  github
   gitfast
-  tmux
+  history-substring-search
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -100,10 +89,15 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=28'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
-bindkey '^v' autosuggest-accept
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_ITERM2="true"
+ZSH_TMUX_AUTOQUIT="false"
 
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+bindkey '^v' autosuggest-accept
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -121,12 +115,10 @@ export LANG=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000000
-SAVEHIST=10000000
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000000000
+export HISTFILESIZE=$HISTSIZE
+export SAVEHIST=$HISTSIZE
 
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
@@ -141,6 +133,7 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+setopt PUSHD_IGNORE_DUPS
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -150,37 +143,32 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# python virtualenv
-#alias python='/usr/local/bin/python3.7'
 alias s2='deactivate 2> /dev/null; source .python2/bin/activate'
 alias s3='deactivate 2> /dev/null; source .python3/bin/activate'
 alias s='s3'
 # tools
 alias vi='vim'
-# git
-alias gcpx='gcp -x'
-alias gcp3='gup && gco 3.0 && gup && git hm; echo "\n"; git h'
-alias pyc='pyclean'
-alias pyt='py.test'
-alias rm.br='git branch | egrep -v "\*| master" | xargs git branch -D'
-alias git=hub
-# system
 alias free='free -h'
 alias ff='find . | grep'
+# git
+alias pyclean='rm -fr dist build insights.zip;pyclean'
+alias rm.br='git branch | egrep -v "\*| master" | xargs git branch -D -v'
+alias gcp3='gcm && gb -D 3.0; gpr && gco 3.0 && git hm; echo "\n<---->"; git h'
+alias release_test='gpr && pyclean && s && py.test'
 # Servers
-alias login_insights_dev_rhel7='ssh root@10.72.32.215'
-alias login_insights_gsslab='ssh root@insights-plugins.vm.gsslab.pek2.redhat.com'
-alias login_tomcat_apache_rhel7='ssh root@10.72.32.219'
-alias login_sat6_rhel7='ssh root@10.72.32.205'
-alias login_rhel8_beta='ssh root@10.72.37.245'
-alias login_sat6_rhel6='ssh root@10.72.32.209'
-alias login_sat6_rhel8='ssh root@10.72.37.146'
-alias login_sat6_rhel8_2='ssh root@10.72.32.193'
-alias login_hana_rhel6='ssh root@10.66.208.130'
-alias login_hana_rhel7='ssh root@10.66.208.132'
-alias login_hana2_rhel7='ssh root@10.72.37.54'
-alias login_sap_rhemv='ssh root@10.72.35.176'
+alias login_psi='ssh root@insights-rule-services.hosts.prod.psi.rdu2.redhat.com'
+alias login_user='ssh user@insights-release.hosts.dev.psi.pek2.redhat.com'
+alias login_release='ssh release@insights-release.hosts.dev.psi.pek2.redhat.com'
+alias login_rhel7='ssh root@10.72.32.205'
+alias login_rhel8='ssh user@10.72.37.190'
+alias login_rhel9='ssh user@10.72.37.176'
+alias login_sap_rhemv='ssh root@10.72.37.25'
 alias login_insights_engine='ssh root@10.72.32.142'
-
+alias login_taoism='ssh root@taoism.usersys.redhat.com'
+alias login_gitlab_runner='ssh root@10.0.109.146'
+alias login_jupyter='ssh root@jupyter.usersys.redhat.com'
 
 autoload -U compinit && compinit
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

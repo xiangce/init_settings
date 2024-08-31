@@ -254,7 +254,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 " YouCompleteMe {
-let g:ycm_global_ycm_extra_conf = '~/liuxc/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/user/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']

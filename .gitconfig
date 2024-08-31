@@ -20,4 +20,4 @@
     email = xiangceliu@redhat.com
 [core]
     editor = vim
-    excludesfile = /Users/liuxc/.gitignore_global
+    excludesfile = /Users/user/.gitignore_global
